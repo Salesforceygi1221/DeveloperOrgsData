@@ -1,0 +1,10 @@
+<template>
+    <lightning-button label="Launch Screen Flow" onclick={handleClick}></lightning-button>
+    <lightning-flow
+        onstatuschange={handleStatusChange}
+        onfinish={handleFinish}
+        flow-input-variables={flowInputVariables}
+        flow-api-name="Show_Lead_and_Sent_mail"
+        if:true={showFlow}>
+    </lightning-flow>
+</template>

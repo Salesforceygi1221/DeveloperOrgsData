@@ -1,0 +1,108 @@
+<apex:page showHeader="false" sidebar="false" > 
+    
+    <!--  ----------------------------------------------------------------------  -->
+    <!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+    <!--  If necessary, please modify the charset parameter to specify the        -->
+    <!--  character set of your HTML page.                                        -->
+    <!--  ----------------------------------------------------------------------  -->
+    
+    <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8"/>
+    
+    <!--  ----------------------------------------------------------------------  -->
+    <!--  NOTE: Please add the following <FORM> element to your page.             -->
+    <!--  ----------------------------------------------------------------------  -->
+   
+    <body className="slds-scope"> 
+        <!-- Header -->
+        
+        <div>
+            <div>
+                <a id="logo" href="https://hicglobalsolutions.com">
+                    <img src="https://hicglobalsolutions.com/wp-content/uploads/2023/08/logo-hic-svg-hq.svg" alt="HIC GLOBAL SOLUTIONS" width="170" loading="lazy" decoding="async">
+                </a>
+            </div>
+            <div>
+                <a href="https://hicglobalsolutions.com/about-us/"><b>About Us</b></a>
+                <a href="https://hicglobalsolutions.com/service/"><b>Services</b></a>
+                <a href="https://hicglobalsolutions.com/press-release/"><b>Resources</b></a>
+                <a href="https://hicglobalsolutions.com/industry/"><b>Industry</b></a>
+                <a href="https://hicglobalsolutions.com/career/"><b>Career</b></a>
+                    <a href="https://hicglobalsolutions.com/contact-us/"><b>Contact Us</b></a>
+            </div>
+        </div>
+        
+		<!-- Main -->
+        <center>
+            <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+                
+                <input type="hidden" name="oid" value="00D5j00000DCFUT"/>
+                <input type="hidden" name="retURL" value="https://hicglobalsolutions-d-dev-ed.develop.lightning.force.com/lightning/o/Lead/list?filterName=00B5j00000bYux1EAC"/>
+                
+                <!--  ----------------------------------------------------------------------  -->
+                <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+                <!--  these lines if you wish to test in debug mode.                          -->
+                <!--  <input type="hidden" name="debug" value=1>                              -->
+                <!--  <input type="hidden" name="debugEmail"                                  -->
+                <!--  value="yogendra.s@hicglobalsolutions.com">                              -->
+                <!--  ----------------------------------------------------------------------  -->
+                
+                <div>
+                    <label for="first_name">First Name</label>
+                    <input  id="first_name" maxlength="40" name="first_name" size="20" type="text" placeholder = "First Name"/>
+                </div>
+                
+                <div>
+                    <label for="last_name">Last Name</label>
+                    <input  id="last_name" maxlength="80" name="last_name" size="20" type="text" placeholder = "Last Name"/>
+                </div>
+                
+                
+                <div>
+                    <label for="phone">Phone</label>
+                    <input  id="phone" maxlength="40" name="phone" size="20" type="text" placeholder = "Phone Number"/>   
+                </div>
+                
+                
+                <div>
+                    <label for="email">Email</label>
+                    <input  id="email" maxlength="80" name="email" size="20" type="text" placeholder = "Email Address"/>
+                </div>
+                
+                
+                <div>
+                    College Name:<input  id="00N5j00000Ov0l9" maxlength="80" name="00N5j00000Ov0l9" size="20" type="text" placeholder = "College Name"/>
+                </div>
+                
+                
+                <div>
+                    Course Name And Semester:<input  id="00N5j00000Ov0lE" maxlength="80" name="00N5j00000Ov0lE" size="20" type="text" placeholder = "Example: Course Name, Sem - 1st"/>
+                </div>
+                
+                
+                <div>
+                    <label for="city">City</label>
+                    <input  id="city" maxlength="40" name="city" size="20" type="text" placeholder = "City Name" />
+                </div>
+                
+                
+                <div>
+                    <label for="state">State/Province</label>
+                    <input  id="state" maxlength="20" name="state" size="20" type="text" placeholder = "State Name"/>
+                </div>
+                
+                
+                <div>
+                    <label for="country">Country</label>
+                    <input  id="country" maxlength="40" name="country" size="20" type="text" placeholder = "Country Name"/>
+                </div>
+                
+                <div class = 'submit' >
+                    <input type="submit" name="submit"/>
+                </div>
+                
+            </form>
+        </center>
+        
+        <!-- Footer -->
+    </body>
+</apex:page>
