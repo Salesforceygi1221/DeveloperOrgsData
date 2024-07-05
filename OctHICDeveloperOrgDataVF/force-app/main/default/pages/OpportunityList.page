@@ -1,0 +1,18 @@
+<apex:page controller="OpportunityListController">
+    <apex:form >
+        <apex:pageBlock id="opportunityList" title="Opportunities">
+            <apex:pageBlockTable value="{!opportunities}" var="opp">
+                <apex:column value="{!opp.Name}" headerValue="Name"/>
+                <apex:column value="{!opp.Amount}" headerValue="Amount"/>
+                <apex:column value="{!opp.CloseDate}" headerValue="Close Date"/>
+            </apex:pageBlockTable>
+            
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Previous" action="{!previousPage}" disabled="{!!hasPrevious}" reRender="opportunityList"/>
+                <apex:commandButton value="Next" action="{!nextPage}" disabled="{!!hasNext}" reRender="opportunityList"/>
+            </apex:pageBlockButtons>
+            
+            <apex:outputText value="Page {!pageNumber} of {!totalPages}"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,41 @@
+<apex:page controller="LeadMassUpdateController" docType="html-5.0">
+    <apex:form >
+        <apex:pageMessages />
+        
+        <apex:pageBlock title="Mass Update Lead Owners">
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="New Owner" for="newOwner"/>
+                    <apex:selectList value="{!newOwnerId}" size="1" id="newOwner">
+                        <apex:selectOptions value="{!Users}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Update Selected Leads" action="{!updateLeadOwners}" reRender="leadTable,messages"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockTable value="{!leadWrappers}" var="leadWrapper" id="leadTable">
+                <apex:column >
+                    <apex:inputCheckbox value="{!leadWrapper.isSelected}"/>
+                </apex:column>
+                <apex:column value="{!leadWrapper.lead.Name}" headerValue="Name"/>
+                <apex:column value="{!leadWrapper.lead.Company}" headerValue="Company"/>
+                <apex:column value="{!leadWrapper.lead.Email}" headerValue="Email"/>
+                <apex:column value="{!leadWrapper.lead.Owner.Name}" headerValue="Current Owner"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+    
+    <script>
+    function toggleAll(checkbox) {
+        var checkboxes = document.getElementsByTagName('input');
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].type == 'checkbox') {
+                checkboxes[i].checked = checkbox.checked;
+            }
+        }
+    }
+    </script>
+</apex:page>

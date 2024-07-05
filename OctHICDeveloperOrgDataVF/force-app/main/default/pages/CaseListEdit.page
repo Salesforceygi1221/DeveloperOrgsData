@@ -1,0 +1,28 @@
+<apex:page controller="CaseListEditController">
+    <apex:form >
+        <apex:pageBlock title="Case List">
+            <apex:pageMessages />
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save Changes" action="{!saveChanges}" rerender="caseList,pageMessages"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!caseWrappers}" var="cw" id="caseList">
+                <apex:column value="{!cw.caseRecord.CaseNumber}" headerValue="Case Number"/>
+                <apex:column value="{!cw.caseRecord.Subject}" headerValue="Subject"/>
+                <apex:column headerValue="Status">
+                    <apex:inputField value="{!cw.caseRecord.Status}" onChange="markAsModified(this, {!cw.caseRecord.Id})"/>
+                </apex:column>
+                <apex:column headerValue="Priority">
+                    <apex:inputField value="{!cw.caseRecord.Priority}" onChange="markAsModified(this, {!cw.caseRecord.Id})"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+    
+    <script type="text/javascript">
+        function markAsModified(element, caseId) {
+            var row = element.closest('tr');
+            row.setAttribute('data-modified', 'true');
+            row.setAttribute('data-caseid', caseId);
+        }
+    </script>
+</apex:page>

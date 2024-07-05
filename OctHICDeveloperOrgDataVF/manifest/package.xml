@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>AccountCloneWithRelatedExtension</members>
+		<members>AccountContactHierarchyController</members>
+		<members>AccountTypeChartController</members>
+		<members>CaseListEditController</members>
+		<members>ContactCreationController</members>
+		<members>ContactSearchController</members>
+		<members>LeadMassUpdateController</members>
+		<members>OpportunityListController</members>
+		<members>TopAccountsController</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>AccountCloneWithRelated</members>
+		<members>AccountContactHierarchy</members>
+		<members>AccountTypeChart</members>
+		<members>CaseListEdit</members>
+		<members>ContactCreation</members>
+		<members>ContactSearch</members>
+		<members>LeadMassUpdate</members>
+		<members>OpportunityList</members>
+		<members>top10AccountByAnnualRevenue</members>
+		<name>ApexPage</name>
+	</types>
+	<version>60.0</version>
+</Package>

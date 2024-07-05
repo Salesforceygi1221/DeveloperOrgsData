@@ -1,0 +1,10 @@
+<apex:page standardController="Account" recordSetVar="accounts" extensions="TopAccountsController">
+    <apex:pageBlock title="Top 10 Accounts by Annual Revenue">
+        <apex:pageBlockTable value="{!topAccounts}" var="acc">
+            <apex:column value="{!acc.Name}" headerValue="Account Name"/>
+            <apex:column value="{!acc.AnnualRevenue}" headerValue="Annual Revenue"/>
+            <apex:column value="{!acc.Industry}" headerValue="Industry"/>
+            <apex:column value="{!acc.Phone}" headerValue="Phone"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

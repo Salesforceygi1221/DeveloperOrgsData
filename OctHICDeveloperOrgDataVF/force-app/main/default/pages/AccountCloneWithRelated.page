@@ -1,0 +1,11 @@
+<apex:page standardController="Account" extensions="AccountCloneWithRelatedExtension" action="{!view}">
+    <apex:form >
+        <apex:pageBlock title="Account Detail">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Clone with Related" action="{!cloneWithRelated}" />
+            </apex:pageBlockButtons>
+            <apex:pageMessages />
+            <apex:detail subject="{!Account.Id}" relatedList="true" title="false"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

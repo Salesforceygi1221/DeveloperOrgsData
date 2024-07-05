@@ -1,0 +1,70 @@
+<apex:page controller="AccountTypeChartController">
+    <apex:form >
+        <apex:selectList value="{!selectedType}" size="1" onchange="updateChart()">
+            <apex:selectOptions value="{!AccountTypes}"/>
+        </apex:selectList>
+    </apex:form>
+    
+    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    
+    <apex:includeScript value="https://cdn.jsdelivr.net/npm/chart.js"/>
+    
+    <script>
+    let chart;
+    
+    function updateChart() {
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.AccountTypeChartController.getAccountCounts}',
+            document.querySelector('select').value,
+            function(result, event) {
+                if (event.status) {
+                    renderChart(result);
+                } else {
+                    console.error(event.message);
+                }
+            }
+        );
+    }
+    
+    function renderChart(data) {
+        const ctx = document.getElementById('chartContainer').getContext('2d');
+        
+        if (chart) {
+            chart.destroy();
+        }
+        
+        chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: Object.keys(data),
+                datasets: [{
+                    label: 'Account Count',
+                    data: Object.values(data),
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Count'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Account Type'
+                        }
+                    }
+                }
+            }
+        });
+    }
+    
+    // Initial chart render
+    updateChart();
+    </script>
+</apex:page>

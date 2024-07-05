@@ -1,0 +1,19 @@
+<apex:page controller="ContactCreationController">
+    <apex:form >
+        <apex:pageBlock title="Create New Contact">
+            <apex:pageMessages />
+            <apex:pageBlockSection columns="1">
+                <apex:inputField value="{!newContact.FirstName}" required="true"/>
+                <apex:inputField value="{!newContact.LastName}" required="true"/>
+                <apex:inputField value="{!newContact.Email}"/>
+                <apex:inputField value="{!newContact.Phone}"/>
+                <apex:selectList value="{!selectedAccountId}" size="1" label="Account">
+                    <apex:selectOptions value="{!accountOptions}"/>
+                </apex:selectList>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!saveContact}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

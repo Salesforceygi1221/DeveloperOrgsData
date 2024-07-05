@@ -1,0 +1,41 @@
+<apex:page controller="AccountContactHierarchyController">
+    <apex:slds />
+    <div class="slds-scope">
+        <apex:repeat value="{!accountWrappers}" var="accWrapper">
+            <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_medium slds-m-bottom_small">{!accWrapper.account.Name}</h2>
+                <apex:outputPanel layout="none" rendered="{!accWrapper.contacts.size > 0}">
+                    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th scope="col"><div class="slds-truncate" title="Name">Name</div></th>
+                                <th scope="col"><div class="slds-truncate" title="Email">Email</div></th>
+                                <th scope="col"><div class="slds-truncate" title="Phone">Phone</div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!accWrapper.contacts}" var="contact">
+                                <tr class="slds-hint-parent">
+                                    <td data-label="Name">
+                                        <div class="slds-truncate" title="{!contact.FirstName} {!contact.LastName}">
+                                            {!contact.FirstName} {!contact.LastName}
+                                        </div>
+                                    </td>
+                                    <td data-label="Email">
+                                        <div class="slds-truncate" title="{!contact.Email}">{!contact.Email}</div>
+                                    </td>
+                                    <td data-label="Phone">
+                                        <div class="slds-truncate" title="{!contact.Phone}">{!contact.Phone}</div>
+                                    </td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </apex:outputPanel>
+                <apex:outputPanel layout="none" rendered="{!accWrapper.contacts.size == 0}">
+                    <p class="slds-text-color_weak">No contacts associated with this account.</p>
+                </apex:outputPanel>
+            </div>
+        </apex:repeat>
+    </div>
+</apex:page>
